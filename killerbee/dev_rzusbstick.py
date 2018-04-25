@@ -467,7 +467,7 @@ class RZUSBSTICK:
 
             # PyUSB returns an empty tuple occasionally, handle as "no data"
             #TODO added len(pdata) check as some arrays were failing
-            if pdata == None or pdata == () or len(pdata)==0:
+            if pdata == None or pdata == () or len(pdata)==0 or len(pdata)<=10:
                 return None
 
             if pdata[0] == RZ_EVENT_STREAM_AC_DATA and ret is None:
